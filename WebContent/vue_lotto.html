@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                    <title>抽奖程序</title>
+                    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+                    <script src="https://lib.baomitu.com/lodash.js/4.14.1/lodash.min.js"></script>
+                    <style>
+                        * {
+							margin: 10px;
+							padding: 10px;
+							
+                        }
+                    .out_class{
+					
+					}
+					.booo{
+					
+					 width:1200px; 
+					 height:100px;
+					 text-align-last: justify;
+					}
+					
+					
+					.out_class2{
+					}
+                    .list-complete-item {
+                        transition: all 1s;
+                        display: inline-block;
+                        border: 1px solid #ccc;
+                        width: 80px;
+                        height: 80px;
+                        line-height: 80px;
+                        text-align: center;
+						font-size:25px;
+						color:#0000FF;
+						background:url("./gift.jpg");
+						background-repeat:no-repeat;
+						background-position:center;
+						box-shadow: 2px 4px 6px #000;
+						margin: 0 auto;
+                    }
+                    
+                    .draw-bg {
+                        background-color: red;
+                        transform: scale(1.5);
+                    }
+                    
+                    .list-complete-enter,
+                    .list-complete-leave-to {
+                        opacity: 0;
+                        transform: translateY(30px);
+                    }
+                    
+                    .list-complete-leave-active {
+                        position: relative;
+						
+                    }
+                    
+                    .draw {
+						
+                        height: 100px;
+                    }
+                    
+                    button {
+					
+                       padding:10px 60px 10px 60px;
+                       margin: 50px ;
+						
+                    }
+                    li {
+                        float: left;
+                    }
+                    
+                    .draw-list span {
+						position:relative;
+                        display: inline-block;
+						width: 80px;
+                        height: 80px;
+                        line-height: 80px;
+						font-size: 18px;
+						text-align: center;
+                        background: red;
+                        color:#0000FF;
+						font-size:25px;
+						background:url("./starr.png");
+						background-repeat:no-repeat;
+						background-position:center;
+						box-shadow: 2px 4px 6px #000;
+						margin: 0 auto;
+
+                    }
+					
+					.namm{
+						width:1000px; 
+						height:150px;
+						background:url("./name3.png");
+						background-repeat:no-repeat;
+						background-position:center;
+						text-align:center;
+						vertical-align:middle;
+						margin: 0 auto;
+					}
+                    </style>
+                    
+    </head>
+    
+    <body background="./bac.jpg">
+
+	<div id ="out " class="out_class">
+
+        <div id="list-complete-demo" class="demo">
+
+			<div class="namm"></div>
+		<div id="out2" class="out_class2">
+			<transition-group name="list-complete" tag="p">
+                <span v-for="item in arrList" v-bind:key="item" class="list-complete-item" :class="{'draw-bg': item == value}">
+                    {{ item }}
+                </span>
+            </transition-group>
+			<div class="draw-list" >
+                <span v-for="item in target">{{item}}</span>
+            </div>
+			</div>
+			
+
+			<div class = "booo">
+			
+			
+            
+			<input v-model="inputNum" placeholder="输入参与抽奖的数字">
+            <button v-on:click="reset" class ="reset">设置</button>
+			<button v-on:click="start" class="start">开始抽奖</button>
+			<button v-on:click="end"  class ="end">停止</button>
+			
+			</div>
+
+        </div>
+	
+		
+
+	</div>
+		
+		
+		
+		
+		
+		
+        <script>
+ new Vue({
+                    el: '#list-complete-demo',
+                    data: {
+                    inputNum: null,
+                    iniList: [
+                              "1",
+                              "2",
+                              "3",
+                              "4",
+                              "5",
+                              "6"
+                              ],
+                    arrList: [],
+                    target: [],
+                    index: -1,
+                    timer: null,
+                    value: '',
+                    status: true
+                    },
+                    mounted() {
+                    this.arrList = this.iniList.slice(0,this.iniList.length)
+                    if (!localStorage.getItem('initData')) {
+                    localStorage.setItem('initData', JSON.stringify(this.arrList))
+                    } else {
+                    this.arrList = JSON.parse(localStorage.getItem('initData'))
+                    }
+                    if (localStorage.getItem('drawList')) {
+                    this.target = JSON.parse(localStorage.getItem('drawList'))
+                    }
+                    
+                    },
+                    methods: {
+                    start() {
+                    if(this.arrList.length < 2) {
+                        alert('抽奖列表过短！请重置列表！')
+                        return
+                    }
+                    if (this.status) {
+                    this.shuffle()
+                    setTimeout(() => {
+                               this.recursive()
+                               }, 800)
+                    this.status = !this.status
+                    }
+                    },
+                    randomIndex: function() {
+                    this.index = Math.floor(Math.random() * this.arrList.length)
+                    return this.index
+                    },
+                    remove: function() {
+                    this.arrList.splice(this.randomIndex(), 1)
+                    },
+                    shuffle: function() {
+                    this.arrList = _.shuffle(this.arrList)
+                    },
+                    recursive() {
+                    clearTimeout(this.timer)
+                    this.timer = setTimeout(() => {
+                                            this.value = this.arrList[this.randomIndex()]
+                                            this.recursive()
+                                            }, 200)
+                    },
+                    reset() {
+                    if(this.inputNum != null) {
+                        console.log('in if null')
+                        if(this.inputNum < 2) {
+                            alert('抽奖列表过短！请重新输入！')
+                            return
+                        }
+                    }
+                    localStorage.clear()
+                    var numData = this.inputNum
+                    //console.log('inputNumData',this.inputNumData)
+                    if(numData>0) {
+                        this.iniList = []
+                        while(numData > 0) {
+                            this.iniList.push(numData)
+                            numData = numData-1
+                        }
+	    this.inputNum = null
+                    }
+                    
+                    this.arrList = this.iniList.slice(0,this.iniList.length)
+                    this.target = []
+                    },
+                    end() {
+                    if (this.status) {
+                    return
+                    }
+                    clearTimeout(this.timer)
+                    this.index = this.randomIndex()
+                    this.value = this.arrList[this.index]
+                    this.target.push(this.value)
+                    localStorage.setItem('value', this.value)
+                    localStorage.setItem('drawList', JSON.stringify(this.target))
+                    this.arrList.splice(this.index, 1)
+                    localStorage.setItem('initData', JSON.stringify(this.arrList))
+                    this.status = !this.status
+                    }
+                    }
+                    })
+            </script>    </body>
+    
+</html>

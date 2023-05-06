@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>抽奖活动</title>
+        <link rel="stylesheet" href="./css/prizedraw.css">
+        
+        
+        <script src="./js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="./js/jquery.qrcode.min.js"></script>
+        
+	</head>
+	
+	
+	<body class="bodybg">
+        <div class="imgbg re" id="vuesb">
+            <img src="" alt="" srcset="">
+            <h1 class="title">幸运抽抽抽</h1>
+            <div class="titleline"></div>
+            <div class="imgboxshow clear"></div>
+            <!-- 实时更新报名人数 -->
+            <div class="playnum">
+                <span class="numti">已报名人数：</span>
+                <span class="num">0</span>
+            </div>
+            <!-- 二维码生成div -->
+            <div class="weixin">
+                <div class="code overboximg"></div>
+            </div>
+            <div class="shows"></div>
+            <div class="prizeboxout hide">
+                <div class="prizebox">
+                    <div class="prizetop">
+                        <p class="wp100 cfff fs25 tac prizeboxtitle">奖</p>
+                        <div class="prizeboxclose fg">×</div>
+                        <div class="prizeboxline"></div>
+                        <!-- 奖品放置div -->
+                        <div class="prizetopimg">
+                            <div id="prizeboxshow1" class="prizeboxshow clear prizeboxshow1 re">
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="prizetopimg clear hide">
+                            <div id="prizeboxshow2" class="prizeboxshow clear re">
+                                
+                            </div>
+                        </div>
+                        
+                        <p class="wp100 cfff fs20 tac hide mt10 prizeboxtitle2box">恭喜以上用户抽中
+                            <span class="prizeboxtitle2">奖</span>
+                        </p>
+                    </div>
+                    <div class="prizebottom">
+                        <div class="fg prizeboxstartbtn" id="startfn" onclick="startfn(this)">抽奖</div>
+                        <div class="fg prizeboxstartbtn hide" id="stopbtn" onclick="stopfn()">停止</div>
+                    </div>
+                </div>
+                <div class="overbox">
+                    
+                </div>
+            </div>
+        </div>
+        <!-- <script src="/js/vue.min.js"></script> -->
+     <script>
+     // 定义奖品构造函数
+	     function Price(priceName,startTime,endTime,mode,rewardLevels)
+	     {
+	     	this.priceName=priceName;
+	     	this.startTime=startTime;
+	     	this.endTime=endTime;
+	     	this.mode=mode;
+	     	this.rewardLevels=rewardLevels;
+	     }
+	// ajax用来返回中奖用户数据
+	     alert("1231");
+	     var mypirce = new Array();
+	     $(document).ready(function(){
+	         $("#k").click(function(){
+	         	alert("今天ajax");
+	             $.ajax({
+	                 url:"Show2",
+	                 data:{},
+	                 type:"POST",
+	                 dataType:"JSON",
+	                 success:function(httpdata){
+	                 	alert("success");
+	                     for(var i=0;i<httpdata.length;i++){
+	                     	alert(i);
+	                     	if(true){
+	                             var price_item = new  Price(httpdata[i].priceName,  httpdata[i].startTime,   httpdata[i].endTime,   httpdata[i].mode,   httpdata[i].rewardLevels)
+	                             mypirce.push(price_item)
+	                             var tr="<tr>"
+	                                 tr+="<td>"+price_item.priceName+"</td>"
+	                                 tr+="<td>"+price_item.startTime+"</td>"
+	                                 tr+="<td>"+price_item.endTime+"</td>"
+	                                 tr+="</tr>"
+	                                 $("#x").append(tr)                		
+	                     	}
+	                     }    
+	                 },
+	                error:function(XMLHttpRequest, textStatus, errorThrown) {
+	                	//这个error函数调试时非常有用，如果解析不正确，将会弹出错误框
+	                	alert(XMLHttpRequest.responseText); 
+	                	alert(XMLHttpRequest.status);
+	                	alert(XMLHttpRequest.readyState);
+	                	alert(textStatus); // parser error;
+	                	}
+	             })
+	         });
+	     });
+        // 无需修改抽奖动画内部细节
+		// 只需修改三个接口数组
+		// 奖品数组 prizearr
+		// 参与抽奖用户数组 imgarr
+		// 中奖用户数组
+		
+		// 奖品的数据列表
+		var prizearr = [
+		    {
+		        'prizename':'神秘大礼',
+		        'prizenum':'9',
+		        'prizeurl':'./image/prizedraw/prizelist/13.jpg',
+		        'prizerank':'一等奖',
+		    },
+		    {
+		        'prizename':'神秘中礼',
+		        'prizenum':'99',
+		        'prizeurl':'./image/prizedraw/prizelist/12.jpg',
+		        'prizerank':'二等奖',
+		    },
+		    {
+		        'prizename':'神秘小礼',
+		        'prizenum':'999',
+		        'prizeurl':'./image/prizedraw/prizelist/10.jpg',
+		        'prizerank':'安慰奖',
+		    }
+		];
+		
+		
+		
+		// 用户数组
+		// 抽奖滚动页面的每一列的用户列表数据,
+		//  抽奖用户 二维数组[ [ {},...,{} ],[ {},..,{} ],[ {},...,{} ]]
+		var imgarr = [
+		    [{
+		        'imgname':'用户1',
+		        'imgurl':'./image/prizedraw/prizelist/5.jpg',
+		    }],
+		    
+		    [{
+		        'imgname':'一号',
+		        'imgurl':'./image/prizedraw/prizelist/2.jpg',
+		    }]
+		    
+		    ,
+		    [{
+		        'imgname':'一号',
+		        'imgurl':'./image/prizedraw/prizelist/1.jpg',
+		    }]
+		    
+		];
+		
+		// 中奖号码数组
+		var prizenumarr = [
+		    {
+		        'imgname':'用户1',
+		        'imgurl':'./image/prizedraw/prizelist/5.jpg',
+		    },
+		    {
+		        'imgname':'用户10',
+		        'imgurl':'./image/prizedraw/prizelist/6.jpg',
+		    },
+		    {
+		        'imgname':'用户8',
+		        'imgurl':'./image/prizedraw/prizelist/8.jpg',
+		    }
+		]
+		</script>  
+        <script src="./js/prizedraw.js"></script>
+    </body>
+</html>

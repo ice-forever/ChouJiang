@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>添加活动-云，让抽奖更智能</title>
+    <!--Base-->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap3.min.css" rel="stylesheet" media="screen">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script type="text/javascript" src="../../js/bootstrap.js"></script>
+    <!--<script src="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/js/bootstrap.js"></script>-->
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.addons.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <link rel="stylesheet" href="../../vendors/icheck/skins/all.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="../../images/favicon.png"/>
+    <!--bootstrap table-->
+    <script src="https://cdn.bootcss.com/bootstrap-table/1.14.2/bootstrap-table.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-table/1.14.2/locale/bootstrap-table-zh-CN.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap-table/1.14.2/bootstrap-table.min.css" rel="stylesheet">
+    <!--date picker-->
+    <link href="../../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <script type="text/javascript" src="../../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../../js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <!--x-editable-->
+    <script src="../../js/bootstrap-table-editable.js"></script>
+    <link href="../../css/bootstrap-editable.css" rel="stylesheet"/>
+    <script src="../../js/bootstrap-editable.js"></script>
+</head>
+
+<body>
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+            <a class="navbar-brand brand-logo" href="index.html">
+                <img src="../../images/logo.png" alt="logo"/>
+            </a>
+            <a class="navbar-brand brand-logo-mini" href="index.html">
+                <img src="../../images/logo.png" alt="logo"/>
+            </a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center">
+            <ul class="navbar-nav navbar-nav-right">
+                <li class="nav-item dropdown">
+                    <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#"
+                       data-toggle="dropdown" aria-expanded="false">
+                        <i class="mdi mdi-file-document-box"></i>
+                        <span class="count">7</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                         aria-labelledby="messageDropdown">
+                        <div class="dropdown-item">
+                            <p class="mb-0 font-weight-normal float-left">You have 7 unread mails
+                            </p>
+                            <span class="badge badge-info badge-pill float-right">View all</span>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item preview-item">
+                            <div class="preview-thumbnail">
+                                <img src="../../images/faces/face4.jpg" alt="image" class="profile-pic">
+                            </div>
+                            <div class="preview-item-content flex-grow">
+                                <h6 class="preview-subject ellipsis font-weight-medium text-dark">David Grey
+                                    <span class="float-right font-weight-light small-text">1 Minutes ago</span>
+                                </h6>
+                                <p class="font-weight-light small-text">
+                                    The meeting is cancelled
+                                </p>
+                            </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item preview-item">
+                            <div class="preview-thumbnail">
+                                <img src="../../images/faces/face2.jpg" alt="image" class="profile-pic">
+                            </div>
+                            <div class="preview-item-content flex-grow">
+                                <h6 class="preview-subject ellipsis font-weight-medium text-dark">Tim Cook
+                                    <span class="float-right font-weight-light small-text">15 Minutes ago</span>
+                                </h6>
+                                <p class="font-weight-light small-text">
+                                    New product launch
+                                </p>
+                            </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item preview-item">
+                            <div class="preview-thumbnail">
+                                <img src="../../images/faces/face3.jpg" alt="image" class="profile-pic">
+                            </div>
+                            <div class="preview-item-content flex-grow">
+                                <h6 class="preview-subject ellipsis font-weight-medium text-dark"> Johnson
+                                    <span class="float-right font-weight-light small-text">18 Minutes ago</span>
+                                </h6>
+                                <p class="font-weight-light small-text">
+                                    Upcoming board meeting
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+                       data-toggle="dropdown">
+                        <i class="mdi mdi-bell"></i>
+                        <span class="count">4</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                         aria-labelledby="notificationDropdown">
+                        <a class="dropdown-item">
+                            <p class="mb-0 font-weight-normal float-left">You have 4 new notifications
+                            </p>
+                            <span class="badge badge-pill badge-warning float-right">View all</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item preview-item">
+                            <div class="preview-thumbnail">
+                                <div class="preview-icon bg-success">
+                                    <i class="mdi mdi-alert-circle-outline mx-0"></i>
+                                </div>
+                            </div>
+                            <div class="preview-item-content">
+                                <h6 class="preview-subject font-weight-medium text-dark">Application Error</h6>
+                                <p class="font-weight-light small-text">
+                                    Just now
+                                </p>
+                            </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item preview-item">
+                            <div class="preview-thumbnail">
+                                <div class="preview-icon bg-warning">
+                                    <i class="mdi mdi-comment-text-outline mx-0"></i>
+                                </div>
+                            </div>
+                            <div class="preview-item-content">
+                                <h6 class="preview-subject font-weight-medium text-dark">Settings</h6>
+                                <p class="font-weight-light small-text">
+                                    Private message
+                                </p>
+                            </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item preview-item">
+                            <div class="preview-thumbnail">
+                                <div class="preview-icon bg-info">
+                                    <i class="mdi mdi-email-outline mx-0"></i>
+                                </div>
+                            </div>
+                            <div class="preview-item-content">
+                                <h6 class="preview-subject font-weight-medium text-dark">New user registration</h6>
+                                <p class="font-weight-light small-text">
+                                    2 days ago
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown d-none d-xl-inline-block">
+                    <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown"
+                       aria-expanded="false">
+                        <span class="profile-text">Hello, -username- !</span>
+                        <img class="img-xs rounded-circle" src="../../images/faces/default.jpg" alt="Profile image">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                        <a class="dropdown-item p-0">
+                            <div class="d-flex border-bottom">
+                                <div class="py-3 px-4 d-flex align-items-center justify-content-center">
+                                    <i class="mdi mdi-bookmark-plus-outline mr-0 text-gray"></i>
+                                </div>
+                                <div class="py-3 px-4 d-flex align-items-center justify-content-center border-left border-right">
+                                    <i class="mdi mdi-account-outline mr-0 text-gray"></i>
+                                </div>
+                                <div class="py-3 px-4 d-flex align-items-center justify-content-center">
+                                    <i class="mdi mdi-alarm-check mr-0 text-gray"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="dropdown-item mt-2">
+                            Manage Accounts
+                        </a>
+                        <a class="dropdown-item">
+                            Change Password
+                        </a>
+                        <a class="dropdown-item">
+                            Check Inbox
+                        </a>
+                        <a class="dropdown-item">
+                            Sign Out
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                    data-toggle="offcanvas">
+                <span class="mdi mdi-menu"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+        <!-- partial:../../partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <ul class="nav">
+                <li class="nav-item nav-profile">
+                    <div class="nav-link">
+                        <div class="user-wrapper">
+                            <div class="profile-image">
+                                <img src="../../images/faces/default.jpg" alt="profile image">
+                            </div>
+                            <div class="text-wrapper">
+                                <p class="profile-name">-username-</p>
+                                <div>
+                                    <small class="designation text-muted">Level -userlevel-</small>
+                                    <span class="status-indicator online"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-success btn-block">新建活动
+                            <i class="mdi mdi-plus"></i>
+                        </button>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../index.html">
+                        <i class="menu-icon mdi mdi-television"></i>
+                        <span class="menu-title">控制台</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-md-6 d-flex align-items-stretch grid-margin">
+                        <div class="row flex-grow">
+                            <div class="col-12 stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title"><b>活动基本信息</b></h4>
+                                        <form class="forms-sample">
+                                            <div class="form-group row">
+                                                <label for="eventName"
+                                                       class="col-sm-3 col-form-label">活动名称</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="eventName"
+                                                           name="price_name"
+                                                           placeholder="请输入活动名称...">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="eventDescrip" class="col-sm-3 col-form-label">活动描述</label>
+                                                <div class="col-sm-9">
+                                                    <textarea class="form-control" id="eventDescrip"
+                                                              rows="6"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">封面上传</label>
+                                                <input type="file" name="img[]" class="file-upload-default"
+                                                       id="imguploadInput1">
+                                                <div class="input-group col-sm-9">
+                                                    <input type="text" class="form-control file-upload-info" disabled
+                                                           placeholder="封面图片上传" id="imguploadInput2">
+                                                    <span class="input-group-append">
+                                                <button class="file-upload-browse btn btn-info"
+                                                        type="button">上传</button>
+                                                </span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-flex align-items-stretch grid-margin">
+                        <div class="row flex-grow">
+                            <div class="col-12 stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title"><b>活动属性设置</b></h4>
+                                        <form class="forms-sample">
+                                            <div class="form-group row">
+                                                <label for="partLimit"
+                                                       class="col-sm-3 col-form-label">参加人数上限</label>
+                                                <div class="col-sm-9">
+                                                    <input type="email" class="form-control" id="partLimit"
+                                                           placeholder="请输入参加人数上限...">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="partRange" class="col-sm-3 col-form-label">活动可见范围</label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control" id="partRange">
+                                                        <option>公开</option>
+                                                        <option disabled>白名单</option>
+                                                        <option disabled>黑名单</option>
+                                                        <option disabled>导入名单</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">活动类型</label>
+                                                <div class="col-sm-3 form-radio">
+                                                    <label class="form-check-label">
+                                                        <input type="radio" class="form-check-input"
+                                                               name="price_mode" id="eventType1" value="1"
+                                                               checked> 在线互动抽奖
+                                                    </label>
+                                                </div>
+                                                <div class="col-sm-3 form-radio">
+                                                    <label class="form-check-label">
+                                                        <input type="radio" class="form-check-input"
+                                                               name="price_mode" id="eventType2" value="2">
+                                                        在线非互动抽奖
+                                                    </label>
+                                                </div>
+                                                <div class="form-radio">
+                                                    <label class="form-check-label">
+                                                        <input type="radio" class="form-check-input"
+                                                               name="price_mode" id="eventType3" value="3">
+                                                        离线抽奖
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="dateEventEnd"
+                                                       class="col-sm-3 col-form-label">活动结束/开奖时间</label>
+                                                <div class="input-group date form_datetime col-md-5"
+                                                     data-date="2023-01-01T00:00:01" data-date-format="yyyy-mm-dd hh:ii"
+                                                     data-link-field="dateEventEnd">
+                                                    <input class="form-control" size="16" type="text" value="" readonly>
+
+                                                    <span class="input-group-addon"><span
+                                                            class="glyphicon glyphicon-remove"></span></span>
+                                                </div>
+                                                <input type="hidden" id="dateEventEnd" value=""/><br/>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--参与者列表-->
+                    <div class="col-12 grid-margin">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title"><b>编辑抽奖名单</b></h4>
+                                <table class="table table-bordered text-center" id="participant-table">
+                                    <tr>
+                                        <td colspan="4">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <script type="text/javascript">
+                                                        $(function () {
+                                                            $("#uupload").click(function () {
+                                                                var formData = new FormData($('#uuploadForm')[0]);
+                                                                $.ajax({
+                                                                    type: 'post',
+                                                                    url: "../../../ModifyUpload",
+                                                                    data: formData,
+                                                                    cache: false,
+                                                                    processData: false,
+                                                                    contentType: false,
+                                                                }).then(function onSuccess(data) {
+                                                                    alert("上传成功!");
+                                                                }).catch(function onError() {
+                                                                    alert("上传失败!");
+                                                                });
+                                                            });
+                                                        });
+
+                                                    </script>
+
+                                                    <div class="form-group col-md-6" style="margin-left:-32px;">
+                                                        <form id="uuploadForm" enctype="multipart/form-data">
+                                                            <input class="btn btn-default"
+                                                                   style="display:inline-block" id="fffile"
+                                                                   type="file" name="fffile"/>
+                                                            <button class="btn btn-info"
+                                                                    style="display:inline-block" id="uupload">
+                                                                上传导入
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control secbox"/>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <button class="btn btn-primary sec">搜索</button>
+                                                        <!--搜索确定-->
+                                                        <button class="btn btn-default add" data-toggle="modal"
+                                                                data-target="#addModal">人工增加
+                                                        </button>
+                                                        <!--data-toggle data-target 属性插入bootstrap事件自带的模态框事件-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                            </td>
+                            </tr>
+                            <tr>
+                                <td>用户编号</td>
+                                <td>用户名</td>
+                                <td>抽奖号码</td>
+                                <td>操作</td>
+                            </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <!--修改模态框-->
+                    <div class="modal fade up" tabindex="-1" role="dialog" id="updateModal">
+                        <div class="modal-dialog modal-center" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">修改</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <input type="text" placeholder="用户名" id="reusrname"
+                                                   class="form-control"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" placeholder="抽奖号码" class="form-control"
+                                                   id="rescore"/>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                    <button type="button" class="btn btn-primary que_update">确定</button><!--确定修改-->
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div>
+                    <!--增加模态框-->
+                    <div class="modal fade up" tabindex="-1" role="dialog" id="addModal">
+                        <div class="modal-dialog modal-center" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">增加</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <input type="text" placeholder="用户名" id="addusrname"
+                                                   class="form-control"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" placeholder="抽奖号码" class="form-control"
+                                                   id="addscore"/>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default cancel" data-dismiss="modal">取消
+                                    </button>
+                                    <button type="button" class="btn btn-primary que_add">确定</button><!--确定添加-->
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div>
+                </div>
+                <!--奖品列表-->
+                <div class="col-12 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title"><b>编辑奖品列表</b></h4>
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <table class="table" id="table-methods-table-left">
+                                            <thead>
+                                            <label class="col-sm-3 col-form-label">我的奖品池</label>
+                                            <tr>
+                                                <th data-field="state" data-checkbox="true"></th>
+                                                <th data-field="rewardID">
+                                                    奖品ID
+                                                </th>
+                                                <th data-field="rewardName">
+                                                    奖品名
+                                                </th>
+                                                <th data-field="rewardWorth">
+                                                    价格
+                                                </th>
+                                                <th data-field="rewardNum">
+                                                    剩余数量
+                                                </th>
+                                                <th data-field="rewardInDate">
+                                                    导入日期
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                        </table>
+                                    </td>
+                                    <td valign="middle">
+                                        <div style="margin-top:50%;">
+                                            <button class="btn btn-primary btn-large btn-block" type="button"
+                                                    id="btn2Right" data-method="append">-->
+                                            </button>
+                                            <button id="btn2Left" class="btn btn-info btn-large btn-block"
+                                                    type="button"><---
+                                            </button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <table class="table" id="table-methods-table-right">
+                                            <thead>
+                                            <label class="col-sm-3 col-form-label">加入活动的奖品</label>
+                                            <tr>
+                                                <th data-field="state" data-checkbox="true"></th>
+                                                <th data-field="rewardID">
+                                                    奖品ID
+                                                </th>
+                                                <th data-field="rewardName">
+                                                    奖品名
+                                                </th>
+                                                <th data-field="rewardWorth">
+                                                    价格
+                                                </th>
+                                                <th data-field="re2evNum">
+                                                    导入数量
+                                                </th>
+                                                <th data-field="evReLevel">
+                                                    奖品等级
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                        </table>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title"><b>抽奖功能设置</b></h4>
+                            <form class="form-sample">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">抽奖类群</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" id="lottoType1">
+                                                    <option>体验类</option>
+                                                    <option disabled>会员定制类</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">抽奖型群</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" id="lottoType2">
+                                                    <option>无互动型</option>
+                                                    <option>转盘型</option>
+                                                    <option>九宫格型</option>
+                                                    <option>弹球型</option>
+                                                    <option>老虎机型</option>
+                                                    <option>光标型</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">用户过滤方式</label>
+                                            <div class="col-sm-3 form-radio">
+                                                <label class="form-check-label">
+                                                    <input type="radio" class="form-check-input"
+                                                           name="lottoUserFilt1" id="lottoUserFilt1" value=""
+                                                           checked> 无过滤
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-3 form-radio">
+                                                <label class="form-check-label">
+                                                    <input type="radio" class="form-check-input"
+                                                           name="lottoUserFilt1" id="lottoUserFilt12" value="option2"
+                                                           disabled>
+                                                    初步过滤
+                                                </label>
+                                            </div>
+                                            <div class="form-radio">
+                                                <label class="form-check-label">
+                                                    <input type="radio" class="form-check-input"
+                                                           name="lottoUserFilt1" id="lottoUserFilt13" value="option3"
+                                                           disabled>
+                                                    定制过滤（会员功能）
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">其他设置</label>
+                                            <div class="form-group">
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input" disabled
+                                                               checked> 开奖时间自动开奖
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input" disabled> 预留
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <div class="form-group">
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input" disabled>
+                                                        预留
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input" disabled>
+                                                        预留
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="eventMemo">活动备注</label>
+                                <textarea class="form-control" id="eventMemo" rows="6"></textarea>
+                            </div>
+                            <div style="text-align:center;margin-left:200px;margin-right:200px;margin-top:50px;">
+                                <button type="button" class="btn btn-success btn-block">
+                                    提交修改
+                                </button>
+                                <button type="button" style="margin-top:20px;margin-bottom:30px;"
+                                        class="btn btn-light btn-block">
+                                    取消修改
+                                </button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
+        <footer class="footer">
+            <div class="container-fluid clearfix">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2020
+              <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
+                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <i class="mdi mdi-heart text-danger"></i>
+            </span>
+            </div>
+        </footer>
+        <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+</div>
+<!-- page-body-wrapper ends -->
+</div>
+<!-- container-scroller -->
+
+<!--日期选择-->
+<script>
+    $('.form_datetime').datetimepicker({
+        language: 'zh-CN',
+        weekStart: 1,
+        todayBtn: 1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        showMeridian: 1
+    });
+</script>
+
+<!--抽奖名单-->
+<script>
+    //模态增
+    $(".que_add").click(function () {//点开增加按钮弹出的模态框后的确定按钮事件
+        var arr = [];
+        //var num = $(".table tr").length
+        var num = $("#participant-table tr").length;
+        var str = '';
+        var name = $(this).parent().siblings().find("input").val();//找到input框的内容并存放在命名为name的变量中
+        var score = $(this).parent().siblings().find("input:not(:first)").val();//找到input框的内容并存放在命名为score的变量中
+        $(this).parent().siblings().find("input").each(function () {//将两个input的内容用each方法遍历并用push方法逐个存放到叫arr的数组中
+            arr.push($(this).val());
+            $(this).val("");
+        });
+        if (name == 0 || score == 0) {//判断内容是否为空，否则弹窗"请输入一点东西"
+            alert("输入内容不能为空！")
+        } else {//是则加入到table中（表格）并把模态框关闭
+            str = '<tr><td>' + (num - 1) + '</td><td>' + arr[0] + '</td><td>' + arr[1] + '</td><td><button class="btn btn-primary btn-xs update" data-toggle = "modal" data-target = "#updateModal">修改</button> <button class="btn btn-danger btn-xs del">删除</button></td></tr>';
+            //$("table").append(str)
+            $('#participant-table').append(str);
+            $(this).modal('hide');
+        }
+    });
+    //删除
+    $(document).on("click", ".del", function () {//找到点击的类目为del的按钮实现删除
+        $(this).parents("tr").remove()
+    });
+    //对象缓存
+    var _this = null
+    $(document).on("click", ".update", function () {
+        _this = $(this).parents("tr")//缓存类名为update的父级tr项
+    });
+    //确定修改
+    $(".que_update").click(function () {//同增加事件
+        var arr = [];
+        $(this).parent().siblings().find("input").each(function () {
+            arr.push($(this).val());
+            $(this).val("");
+        });
+        _this.find("td:not(:first):not(:last)").each(function (i) {//同增加事件，但这里因为有arr[i]所以要在function()括号加个变量i
+            $(this).text(arr[i])
+        });
+        //弹出模态框
+        $(this).modal("hide");
+    });
+    //搜索
+    $(".sec").click(function () {//搜索框的点击事件
+        var data = $(".secbox").val();
+        if (data == 0) {//判断搜索框是否为空，是则弹窗"请输入一点东西"
+            alert("请输入一点东西");
+        } else {//否则搜索内容为搜索框（.secbox）里的内容（val）的项将他的背景颜色改成淡蓝色
+            //$(".table tr:not(:first):contains(" + data + ")").css("background", "#D9EDF7");
+            $("#participant-table tr:not(:first):contains(" + data + ")").css("background", "#D9EDF7");
+            $(this).blur(function () {//离开搜索框是变成默认颜色
+                $(".secbox").val("");
+                //$(".table tr").css("background", "#fff");
+                $("#participant-table tr").css("background", "#fff");
+            })
+        }
+    })
+</script>
+
+<!--<script>-->
+
+<!--    $.ajax({-->
+<!--        type: "get",-->
+<!--        //get方法-->
+<!--        url: "data/data.json",-->
+<!--        //json源文件-->
+<!--        async: true,-->
+<!--        //异步-->
+<!--        success: function (res) {-->
+<!--            var str = ''-->
+<!--            for (var i = 0; i < res.length; i++) {-->
+<!--                str += '<tr><td>' + (i + 1) + '</td><td>' + res[i].name + '</td><td>' + res[i].age + '</td><td><button class="btn btn-primary btn-xs update" data-toggle = "modal" data-target = "#updateModal">修改</button> <button class="btn btn-danger btn-xs del">删除</button></td></tr>'-->
+<!--            }-->
+<!--            //用for循环将json文件里的name和age拼接成字符串-->
+<!--            $(".table").append(str)-->
+<!--            //将刚才保存的字符串append（在被选元素的结尾（仍然在内部）插入指定内容）到我们的HTML里面-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->
+
+<!--奖品表格-->
+<script>
+    var mydata =
+        [
+            {
+                rewardID: "R123456",
+                rewardName: "水杯",
+                rewardWorth: "¥111",
+                rewardNum: 10,
+                rewardInDate: "2020-04-07",
+                re2evNum: 10,
+                evReLevel: "一等奖"
+            },
+            {
+                rewardID: "R654321",
+                rewardName: "猫玩偶",
+                rewardWorth: "¥25",
+                rewardNum: 56,
+                rewardInDate: "2020-04-07",
+                re2evNum: 56,
+                evReLevel: "一等奖"
+            },
+            {
+                rewardID: "R980419",
+                rewardName: "只狼",
+                rewardWorth: "¥500",
+                rewardNum: 2,
+                rewardInDate: "2020-04-19",
+                re2evNum: 2,
+                evReLevel: "一等奖"
+            }
+        ]
+
+    $tableLeft = $('#table-methods-table-left').bootstrapTable({
+        //url: '/test.json',
+        data: mydata,
+        idField: 'rewardID',
+        clickToSelect: true,
+        search: true,
+        pagination: true
+    });
+
+    $tableRight = $('#table-methods-table-right').bootstrapTable({
+        idField: 'rewardID',
+        clickToSelect: true,
+        search: true,
+        pagination: true,
+        columns: [{
+            checkbox: true
+        }, {
+            field: "rewardID",
+            title: "奖品ID",
+        }, {
+            field: "rewardName",
+            title: "奖品名",
+        }, {
+            field: "rewardWorth",
+            title: "价格",
+            // formatter: function (value, row, index) {
+            //     var date = eval('new ' + eval(value).source)
+            //     return date.format("yyyy-MM-dd");
+            // }
+        }, {
+            field: "re2evNum",
+            title: "导入数量",
+            editable: {
+                type: 'text',
+                title: '导入数量',
+                mode: "inline",
+                validate: function (value) { //字段验证
+                    if (!$.trim(value)) {
+                        return '不能为空';
+                    }
+                }
+            }
+        }, {
+            field: "evReLevel",
+            title: "奖品等级",
+            editable: {
+                type: 'select',
+                title: '奖品等级',
+                source: [{value: 1, text: "一等奖"}, {value: 2, text: "二等奖"}, {value: 3, text: "三等奖"},
+                    {value: 4, text: "四等奖"}, {value: 5, text: "五等奖"}],
+                emptytext: "一等奖",
+                mode: "inline",
+                validate: function (value) { //字段验证
+                    if (!$.trim(value)) {
+                        return '不能为空';
+                    }
+                }
+            }
+        }]
+    });
+
+    $('#btn2Right').click(function () {
+        var selectContent = $tableLeft.bootstrapTable('getSelections');
+        $tableRight.bootstrapTable("append", selectContent);
+        var selects = $tableLeft.bootstrapTable('getSelections');
+        rewardID = $.map(selects, function (row) {
+            return row.rewardID;
+        });
+
+        $tableLeft.bootstrapTable('remove', {
+            field: 'rewardID',
+            values: rewardID
+        });
+
+    });
+    $('#btn2Left').click(function () {
+        var selectContent = $tableRight.bootstrapTable('getSelections');
+        $tableLeft.bootstrapTable("append", selectContent);
+        var selects = $tableRight.bootstrapTable('getSelections');
+        rewardID = $.map(selects, function (row) {
+            return row.rewardID;
+        });
+        $tableRight.bootstrapTable('remove', {
+            field: 'rewardID',
+            values: rewardID
+        });
+    });
+</script>
+
+<!-- plugins:js -->
+<script src="../../vendors/js/vendor.bundle.base.js"></script>
+<script src="../../vendors/js/vendor.bundle.addons.js"></script>
+<script src="../../js/off-canvas.js"></script>
+<script src="../../js/misc.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page-->
+<!-- End custom js for this page-->
+</body>
+
+</html>

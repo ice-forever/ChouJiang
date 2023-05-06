@@ -1,0 +1,414 @@
+	<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>首页</title>
+<style type="text/css">
+
+	#page{
+		margin:0px;padding:0px;
+		position:relative;
+		z-index:9998;
+		#left: 450px;
+		#top: 20px;
+	}
+	#page_head{
+		background-color:#000000;
+        background-color:rgba(0,0,0,0.2);
+        color:red;
+        text-align:center;
+        font-size: 40px;
+		height:113px;width:100%;
+		margin:auto;
+	}
+	#page_body{
+		height:900px;width:975px;
+		margin:auto;margin-top:10px;
+	}
+	#pag_foot{
+		background-color:grey;
+		height:60px;
+		margin:auto;line-height:60px;
+		text-align:center;font-size:13px;color:#fff;
+	}
+	#logo{
+	
+	}
+	#leader{
+		background-color:#000000;
+		height:50px;width:975px;
+		margin:auto;
+	}
+	#img_welcome{
+	margin:auto;text-align:center;padding-top:0px;
+	}
+	#link{
+	    padding-left:28px;
+	    padding-top:0px;
+	    font-size:16px;color:green;
+	}
+	#mainmenu{
+	    list-style-type:none;
+		float:left;
+		height:50px;margin:	0px;
+		text-align:center;
+		line-height:30px;
+	}
+	#leftli{
+		width:64%;float:left;height:100%;
+		background-color:white;
+        display: inline;
+	}
+	#rightli{
+		width:34%;float:right;height:100%;
+		background-color:white;
+	}
+	#topli{
+	height:35px;
+	background-color:#000000;
+	}
+	#topli-leftpart{
+	float:left;line-height:35px;
+	width:80px;height:100%;
+	background-color:grey;
+	text-align:center;color:green;
+	}
+	#topli-rightpart{
+	float:right;line-height:30px;
+	width:40px;height:100%;
+	}
+	#downimg{
+	float:left;
+	width:50%;
+	padding-top:10px
+	}
+	#leftfloat{
+	float:left;
+    width: 274px;
+    display: inline;
+	}
+	#grey{
+	color:grey;
+	}
+	#blue{
+	color:blue;
+	}
+	ul {list-style-type:square;color:grey;font-size:13px;padding-left:15px}
+	li {padding-top:10px}
+</style>
+
+
+<style type="text/css">
+	#ibanner { display: inline; position:relative;
+    float:left; 
+        width:350px; height:230px; overflow:hidden; margin: 0 ;
+    }
+    #ibanner_pic {}
+    #ibanner_pic a { position:absolute; top:0; display:block; width:350px; height:250px; overflow:hidden; }
+    #ibanner_btn { position:absolute; z-index:9999; right:25px; bottom:25px; font-weight:700; font-family:Arial; }
+    #ibanner_btn span { display:block; float:left; margin-left:4px; padding:0 5px; background:#000; cursor:pointer; }
+    #ibanner_btn .normal { height:20px; margin-top:8px; border:1px solid #999; color:#999; font-size:16px; line-height:20px; }
+    #ibanner_btn .current { height:28px; border:1px solid #FF5300; color:#FF5300; font-size:28px; line-height:28px;
+</style>
+
+<style type="text/css">
+    #canvas{margin: 0; padding: 0; overflow: hidden; position:absolute;z-index:-1;}
+</style>
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+
+<div id="page" >
+	<div id="page_head">
+		<h1> 抽奖 </h1>
+	</div>
+	<div id="leader">
+		<ul style="padding:0 0;">
+		<li id="mainmenu">
+            <a id="link"  href="./My.html"><strong>网站首页</strong></a>         
+        </li>
+        <li id="mainmenu">
+            <a id="link"   href="./login.jsp"><strong>用户登录</strong></a>
+        </li>
+        <li id="mainmenu">
+            <a id="link"   href="./signup.jsp"><strong>用户注册</strong></a>
+        </li>
+
+        <li id="mainmenu">
+            <a id="link"  href="./AddReward.jsp"><strong>抽奖模块</strong></a>
+        </li>
+        <!--<li id="mainmenu">
+            <a id="link"  href="./shipin.html"><strong>视频模块</strong></a>
+        </li>
+        <li id="mainmenu">
+            <a id="link" href="./game.html"><strong>游戏模块</strong></a>
+        </li>-->
+		</ul>
+	</div>
+	<div id="img_welcome"><img src="welcome.jpg" width="975" height="195" ></div>
+	<div id="page_body">
+		<div style="height:30%;blackground-color:grey">
+			<div id="leftli">
+				<div id="topli">
+					<div id="topli-leftpart"><b>奖品列表</b></div>
+					<div id="topli-rightpart"><img src="more.png" ></div>
+				</div>
+				
+                <div id="leftfloat">
+                <ul>
+                <li>
+                    <a>奖品1[02-01]</a>
+                </li>
+                <li>
+                    <a>奖品2[03-18]</a>
+                </li>
+                <li>
+                    <a>奖品3[03-15]</a>
+                </li>
+                </ul>
+                </div>
+				
+                <div id="ibanner">
+					<div id="ibanner_pic">
+					<a href="/jscss/">	
+						<img src="./image/1.jpg" alt="" />
+					</a>
+					<a href="/sort/index.shtml">
+						<img src="./image/1.jpg" alt="" />
+					</a>
+					<a href="/other/lastupdate.shtml">
+						<img src="./image/1.jpg" alt="" />
+					</a>
+					<a href="/other/top100.shtml">
+						<img src="./image/1.jpg" alt="" />
+					</a>
+					</div>
+				</div>
+
+				
+				
+				
+			</div>
+			<div id="rightli">
+				<div id="topli">
+					<div id="topli-leftpart"><b>获奖名单</b></div>
+					<div id="topli-rightpart"><img src="more.png" ></div>
+				</div>
+				<ul type="square">
+				<li>
+					<a>用户1</a>
+				</li>
+				<li>
+					<a>用户2</a>
+				</li>
+				<li>
+					<a>用户3</a>
+				</li>
+				<li>
+					<a>用户4</a>
+				</li>
+				<li>
+					<a>用户5</a>
+				</li>
+				</ul>
+			</div>
+		</div>
+		
+	<div id="pag_foot" align=center>
+	<b>Copyright© 2018 All Rights Reserved.</b>
+	</div>
+</div>
+
+</body>
+<script type="text/javascript">
+function $(id)
+{
+    return document.getElementById(id);
+}
+function addLoadEvent(func)
+{
+    var oldonload = window.onload;
+    if (typeof window.onload != 'function')
+    {
+        window.onload = func;
+    }
+    else
+    {
+        window.onload = function()
+        {
+            oldonload();
+            func();
+        }
+    }
+}
+function addBtn()
+{
+    if(!$('ibanner')||!$('ibanner_pic')) return;
+    var picList = $('ibanner_pic').getElementsByTagName('a');
+    if(picList.length==0) return;
+    var btnBox = document.createElement('div');
+    btnBox.setAttribute('id','ibanner_btn');
+    var SpanBox ='';
+    for(var i=1; i<=picList.length; i++ )
+    {
+        var spanList = '<span class="normal">'+i+'</span>';
+        SpanBox += spanList;
+    }
+    btnBox.innerHTML = SpanBox;
+    $('ibanner').appendChild(btnBox);
+    $('ibanner_btn').getElementsByTagName('span')[0].className = 'current';
+    for (var m=0; m<picList.length; m++)
+    {
+        var attributeValue = 'picLi_'+m
+                             picList[m].setAttribute('id',attributeValue);
+    }
+}
+function moveElement(elementID,final_x,final_y,interval)
+{
+    if (!document.getElementById) return false;
+    if (!document.getElementById(elementID)) return false;
+    var elem = document.getElementById(elementID);
+    if (elem.movement)
+    {
+        clearTimeout(elem.movement);
+    }
+    if (!elem.style.left)
+    {
+        elem.style.left = "0px";
+    }
+    if (!elem.style.top)
+    {
+        elem.style.top = "0px";
+    }
+    var xpos = parseInt(elem.style.left);
+    var ypos = parseInt(elem.style.top);
+    if (xpos == final_x && ypos == final_y)
+    {
+        moveing = false;
+        return true;
+    }
+    if (xpos < final_x)
+    {
+        var dist = Math.ceil((final_x - xpos)/10);
+        xpos = xpos + dist;
+    }
+    if (xpos > final_x)
+    {
+        var dist = Math.ceil((xpos - final_x)/10);
+        xpos = xpos - dist;
+    }
+    if (ypos < final_y)
+    {
+        var dist = Math.ceil((final_y - ypos)/10);
+        ypos = ypos + dist;
+    }
+    if (ypos > final_y)
+    {
+        var dist = Math.ceil((ypos - final_y)/10);
+        ypos = ypos - dist;
+    }
+    elem.style.left = xpos + "px";
+    elem.style.top = ypos + "px";
+    var repeat = "moveElement('"+elementID+"',"+final_x+","+final_y+","+interval+")";
+    elem.movement = setTimeout(repeat,interval);
+}
+function classNormal()
+{
+    var btnList = $('ibanner_btn').getElementsByTagName('span');
+    for (var i=0; i<btnList.length; i++)
+    {
+        btnList[i].className='normal';
+    }
+}
+function picZ()
+{
+    var picList = $('ibanner_pic').getElementsByTagName('a');
+    for (var i=0; i<picList.length; i++)
+    {
+        picList[i].style.zIndex='1';
+    }
+}
+var autoKey = false;
+function iBanner()
+{
+    if(!$('ibanner')||!$('ibanner_pic')||!$('ibanner_btn')) return;
+    $('ibanner').onmouseover = function()
+    {
+        autoKey = true
+    };
+    $('ibanner').onmouseout = function()
+    {
+        autoKey = false
+    };
+
+    var btnList = $('ibanner_btn').getElementsByTagName('span');
+    var picList = $('ibanner_pic').getElementsByTagName('a');
+    if (picList.length==1) return;
+    picList[0].style.zIndex='2';
+    for (var m=0; m<btnList.length; m++)
+    {
+        btnList[m].onmouseover = function()
+        {
+            for(var n=0; n<btnList.length; n++)
+            {
+                if (btnList[n].className == 'current')
+                {
+                    var currentNum = n;
+                }
+            }
+            classNormal();
+            picZ();
+            this.className='current';
+            picList[currentNum].style.zIndex='2';
+            var z = this.childNodes[0].nodeValue-1;
+            picList[z].style.zIndex='3';
+            if (currentNum!=z)
+            {
+                picList[z].style.left='650px';
+                moveElement('picLi_'+z,0,0,10);
+            }
+        }
+    }
+}
+setInterval('autoBanner()', 5000);
+function autoBanner()
+{
+    if(!$('ibanner')||!$('ibanner_pic')||!$('ibanner_btn')||autoKey) return;
+    var btnList = $('ibanner_btn').getElementsByTagName('span');
+    var picList = $('ibanner_pic').getElementsByTagName('a');
+    if (picList.length==1) return;
+    for(var i=0; i<btnList.length; i++)
+    {
+        if (btnList[i].className == 'current')
+        {
+            var currentNum = i;
+        }
+    }
+    if (currentNum==(picList.length-1) )
+    {
+        classNormal();
+        picZ();
+        btnList[0].className='current';
+        picList[currentNum].style.zIndex='2';
+        picList[0].style.zIndex='3';
+        picList[0].style.left='650px';
+        moveElement('picLi_0',0,0,10);
+    }
+    else
+    {
+        classNormal();
+        picZ();
+        var nextNum = currentNum+1;
+        btnList[nextNum].className='current';
+        picList[currentNum].style.zIndex='2';
+        picList[nextNum].style.zIndex='3';
+        picList[nextNum].style.left='650px';
+        moveElement('picLi_'+nextNum,0,0,10);
+    }
+}
+addLoadEvent(addBtn);
+addLoadEvent(iBanner);
+</script>
+</html>

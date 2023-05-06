@@ -1,0 +1,38 @@
+body{background:url(../image/bodybackground.jpg);
+     background-repeat: no-repeat;
+	 background-size:cover; 
+	 }
+.button{
+	 background-color: #FF9933;
+    border: none;
+    color: white;
+    padding: 10px 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+	border-radius: 8px; 
+    color: black; 
+    
+}
+.button:hover {
+    background-color: #FF9900;
+    color: white;
+}
+input[type=text], select {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color:#D8D8D8;
+}
+table,th,td{
+	background-color:white;
+	border-radius: 12px;
+	
+}
